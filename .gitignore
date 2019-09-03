@@ -77,6 +77,10 @@ acs-*.bib
 # endnotes
 *.ent
 
+# Microsoft Word docs
+*.doc
+*.docx
+
 # fixme
 *.lox
 
