@@ -48,13 +48,14 @@ This project may serve itself as a complete activity with the achieved conclusio
 %----------------------------------------------------------------------------------------
 \section{Legal Framework}
 
-% TODO
+
+\newpage
 
 \section{Socio-economic environment}
 \subsection{Budget}
 
 This thesis is meant to be completed within 4 months and 12 ECTS worth. 
-According to the 'European Credit Transfer and Accumulation System \cite{ects}', 
+According to the 'European Credit Transfer and Accumulation System \cite{EuropeanCommission2009}', 
 a credit constitutes about 25 to 30 student hours which means 12 ECTS * 30 hours = 360 plus a 10\% of possible overload, would sum up roughly 400 hours of student time.
 
 Including 1h weekly meetings with the supervisor during 19 weeks, this adds up to 19 hours plus a 6 hours margin gives a total of 25 hours.
@@ -122,3 +123,110 @@ The indirect costs, including gas, electricity, bills, internet, water and other
 \newpage
 
 \subsection{Artificial Neural Networks}
+\begin{figure}[th]
+    \centering
+    \includegraphics{Figures/NeuralNet}
+    \decoRule
+    \caption[Simple MLP architecture]{Simple MLP architecture (Image credit \cite{cs231n})}
+    \label{fig:MLP}
+\end{figure}
+
+The mathematical model of a single neuron share some resemblance with the biological one.
+A biological neuron receives input from its dendrites as an electrical signal that is outputted through the axon to the next neuron in the chain.
+The mathematical model uses this baseline and takes the input $x_i$ for each of the dendrites and multiplies it by the corresponding weight $w_i$,
+depending on the weight of the strength of the neuron will be higher. 
+
+\begin{figure}[th]
+    \centering
+    \includegraphics{Figures/Neuron}
+    \decoRule
+    \caption[Simple MLP architecture]{Neuron Mathematical model (Image credit \cite{cs231n})}
+    \label{fig:MLP}
+\end{figure}
+
+If we compute this for every input $x_i$ and every weight $w_i$ we get the vector dot multiplication
+
+$$ \sum{i=1} x_i w_i  $$ 
+
+Adding a bias factor $b$:
+
+$$ \sum{i=1} x_i w_i  + b$$ 
+
+And using an activation function $f$:
+
+$$ f(\sum{i=1} x_i w_i + b)  $$ 
+
+The activation function will apply a mathematical operation at element level thresholding the output
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.4\linewidth]{Figures/sigmoid}
+        \caption{sigmoid activation function}
+        \label{fig:sub1}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.4\linewidth]{Figures/tanh}
+        \caption{tanh activation function}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Activation functions examples (Image credit \cite{cs231n})}
+    \label{fig:activations}
+\end{figure}
+
+
+
+We can generalize this model for any number of neurons $n$:
+
+$$
+W=\left[
+\begin{array}{ccc}
+   w_{11} & \cdots & w_{1i} \\
+   \vdots & \ddots & \vdots \\
+   w_{n1} & \cdots & w_{ni}
+\end{array}
+\right]
+$$
+
+And for any number of examples $m$:
+
+$$
+X=\left[
+\begin{array}{ccc}
+   x_{11} & \cdots & x_{1m} \\
+   \vdots & \ddots & \vdots \\
+   x_{i1} & \cdots & x_{im}
+\end{array}
+\right]
+$$
+
+Therefore the complete output of a MLP is
+$$ A = f(WX + b) $$
+
+
+In case we stack several layers the output $A$ of this layer becomes the input of the next one
+
+$$ A_j = f_j(W_jA_{j-1} + b_j) $$
+
+If we want to obtain the output matrix $\hat{Y}$ we need to check the output of the last layer $l$:
+
+$$ \hat{Y} = A_l $$
+
+Once the output $\hat{Y}$ is obtained we can check the error against the real output $Y$:
+
+$$ E = || \hat{Y} - Y || $$
+
+During the training phase, the Network will try to adjust the weights matrixes $W_j$ minimizing the error $E$.
+To do so the Gradient Descent is used to find the global minima of the loss function:
+
+\begin{figure}[th]
+    \centering
+    \includegraphics{Figures/GradientDescent}
+    \decoRule
+    \caption[Gradient Descent]{Gradient Descent (Image credit \url{"https://towardsdatascience.com/https-medium-com-piotr-skalski92-deep-dive-into-deep-networks-math-17660bc376ba"})}
+    \label{fig:Gradient Descent}
+\end{figure}
+
+To calculate the Gradient Descent complex partial derivatives are used that will not be discussed in this paper as it is out of the scope of the mentioned \cite{Suykens1996}.
