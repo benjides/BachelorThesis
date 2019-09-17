@@ -47,6 +47,25 @@ This project may serve itself as a complete activity with the achieved conclusio
 \newpage
 %----------------------------------------------------------------------------------------
 \section{Legal Framework}
+Defining ethical limits and regulatory laws for Artificial Intelligence applications is still a pending task.
+There are several factors to weighted in and aspects that may clash with the human natural ethics.
+The oportunity of creating sentient machines raises a host of ethical issues. 
+These questions relate both to ensuring that such machines do not harm humans or any other beings, and to the moral status of the machines themselves \cite{}. 
+
+
+Even without a legal framework, the concerning of ethical issues is an important factor when developing autonomous applications.
+When the system fails the responsability shall be defined and clearly exposed. 
+To bring an example Tesla is facing a legal lawsuit due to the recent fatal crash of one his autopiloted cars \cite{tesla}.
+
+In addition to the moral dilemma the AI machines present a data regulation should be adressed too.
+Tupically, these applications heavily rely on huge amounts of data used for training and testing and all the information included must comply with the vigent law.
+In Spain the General Data Protection Regulation (GPDR) establish the customer rights about data and privacy among others against thrid party entities.
+
+Regarding the intelectual property, the spanish law grants acknowledgment, economic retribution and other benefits to its authors or sole author
+
+Any piece of Open Source software developep shall require a License.
+Generally, any Open Source software is software that can be freely accessed, used, changed, and shared (in modified or unmodified form) by anyone. 
+Open source software is made by many people, and distributed under licenses that comply with the Open Source Definition \cite{opensource} \cite{opensourcedef}.
 
 
 \newpage
@@ -122,13 +141,13 @@ The indirect costs, including gas, electricity, bills, internet, water and other
 % TODO
 \newpage
 
-\subsection{Artificial Neural Networks}
+\section{Artificial Neural Networks}
 \begin{figure}[th]
     \centering
-    \includegraphics{Figures/NeuralNet}
+    \includegraphics[width=1.0\textwidth]{Figures/NeuralNet}
     \decoRule
     \caption[Simple MLP architecture]{Simple MLP architecture (Image credit \cite{cs231n})}
-    \label{fig:MLP}
+    \label{fig:mlp}
 \end{figure}
 
 The mathematical model of a single neuron share some resemblance with the biological one.
@@ -138,23 +157,23 @@ depending on the weight of the strength of the neuron will be higher.
 
 \begin{figure}[th]
     \centering
-    \includegraphics{Figures/Neuron}
+    \includegraphics[width=1.0\textwidth]{Figures/Neuron}
     \decoRule
-    \caption[Simple MLP architecture]{Neuron Mathematical model (Image credit \cite{cs231n})}
-    \label{fig:MLP}
+    \caption[Neuron Mathematical model]{Neuron Mathematical model (Image credit \cite{cs231n})}
+    \label{fig:neuron}
 \end{figure}
 
 If we compute this for every input $x_i$ and every weight $w_i$ we get the vector dot multiplication
 
-$$ \sum{i=1} x_i w_i  $$ 
+$$ \sum_{i=1} x_i w_i  $$ 
 
 Adding a bias factor $b$:
 
-$$ \sum{i=1} x_i w_i  + b$$ 
+$$ \sum_{i=1} x_i w_i  + b$$ 
 
 And using an activation function $f$:
 
-$$ f(\sum{i=1} x_i w_i + b)  $$ 
+$$ f(\sum_{i=1} x_i w_i + b)  $$ 
 
 The activation function will apply a mathematical operation at element level thresholding the output
 
@@ -223,9 +242,9 @@ To do so the Gradient Descent is used to find the global minima of the loss func
 
 \begin{figure}[th]
     \centering
-    \includegraphics{Figures/GradientDescent}
+    \includegraphics[width=1.0\textwidth]{Figures/GDescent.png}
     \decoRule
-    \caption[Gradient Descent]{Gradient Descent (Image credit \url{"https://towardsdatascience.com/https-medium-com-piotr-skalski92-deep-dive-into-deep-networks-math-17660bc376ba"})}
+    \caption[Gradient Descent]{Gradient Descent (Image credit \cite{mathann})}
     \label{fig:Gradient Descent}
 \end{figure}
 
