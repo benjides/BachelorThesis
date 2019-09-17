@@ -27,7 +27,8 @@ Some of the mentioned libraries that will be used along with the project:
 
 
 \subsection{MongoDB}
-MongoDB is a general-purpose, document-based, distributed database \cite{mongo}. With a powerful query syntax and language is pretty straightforward to build complex databases and retrieve the desired records with ease.
+MongoDB is a general-purpose, document-based, distributed database \cite{mongo}.
+With a powerful query syntax and language is pretty straightforward to build complex databases and retrieve the desired records with ease.
 Since it is based on the JSON\cite{json} standard it allows creating complex records using arrays, nested properties, and key-value pairs.
 Despite the traditional relation Databases using the SQL standards, MongoDB is a nonrelational database relaying on the NoSQL (Not Only SQL) syntax and instead of using tables and rows as in relational databases, MongoDB is built around collections and documents.
 
@@ -68,7 +69,26 @@ The project consists of several scripts that handle each one of the individual t
 
     Here is an example of one of the documents inserted:
     \begin{lstlisting}[caption=Song JSON document]
-
+{
+    "_id": "5cadfc2f4fac9e1e50b0ad5a",
+    "mbid": "1a00a335-fead-46ec-8d4f-06e8341291ea",
+    "release": "0f2ccf4d-d242-3c23-a419-ea548af51df3",
+    "genres": [
+        {
+        "name": "electronic",
+        "genres": [
+            {
+            "name": "ambient",
+            "genres": []
+            },
+            {
+            "name": "trance",
+            "genres": []
+            }
+        ]
+        }
+    ]
+}
     \end{lstlisting}
 
     
@@ -201,7 +221,7 @@ The main important aspect to weight in is the number of single features to choos
 
 To see all the available features of the provided dataset refer to Appendix \ref{AppendixA}
 
-According to the base material the most promising features to elaborate a genre classifier model are the \cite{}
+According to the base material the most promising features to elaborate a genre classifier model are the MFCC \cite{Jensen2006} \cite{Li2011}.
 
 The mentioned features are stacked into a vector $x_i$ and normalized to avoid overweighting the rest of the features 
 Then the input matrix is built using:
@@ -211,6 +231,11 @@ $$X = [x_1, x_2, x_3, ... x_m]$$
 %----------------------------------------------------------------------------------------
 
 \section{Data processing}
+
+To avoid having a heavy model on the input and obtain the most prominent features a PCA is applied thus reducing the number of features in the input \cite{pca} \cite{Minka2001}: 
+Given $X$ belonging to $\mathbb{R}^m$ the idea is finding a reduction of $ X' \in \mathbb{R}^n$ where $n < m$ that explains a certain percentage of the variance of the original matrix $X$.
+
+When doing predicitions and tests it is important to reduce the new matrixes to prune the number of components to $n$. 
 
 %----------------------------------------------------------------------------------------
 
@@ -232,7 +257,9 @@ We get that
 $$X = X^{Train} \cup X^{Validation}$$
 $$X^{Train} \cap X^{Validation} =  \emptyset $$
 
-On top of that to validate the overall performance a k-fold cross validation method is used.
+Between each layer an addtional Dropout layer is included to add random uniform noise and obtain a better performance \cite{Srivastava2014}.
+
+On top of that to validate the overall performance a k-fold cross validation method is used \cite{Rodriguez2010}.
 This method divides the entire dataset into $k$ random independant sets and trains the model $k$ times using $k - 1$ sets as training and the remaining one as test
 To calculate the accuracy we can get use a simple mean from all the models accuracy
 
@@ -243,10 +270,23 @@ $$acc_{m} = \frac{1}{k}\sum_{i=1}^{k} acc_{m_{i}}$$
 
 \section{Test}
 
+\cite{Flach2015}
+\cite{Davis2006}
 
 %----------------------------------------------------------------------------------------
 
 \section{Prediction}
+
+New song comes
+    Audio -> extract features
+    Features
+
+    PCA
+
+
+    Prediction
+
+    Labeling
 
 %----------------------------------------------------------------------------------------
 
