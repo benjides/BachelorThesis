@@ -8,8 +8,7 @@ This section provides an overview of the AcousticBrainz Genre Task
 organized as part of the MediaEval 2018 Benchmarking Initiative for
 Multimedia Evaluation. 
 
-The task is focused on content-based music
-genre recognition using genre annotations from multiple sources
+The task is focused on content-based music genre recognition using genre annotations from multiple sources
 and large-scale music features data available in the AcousticBrainz
 database \cite{Porter2015}. 
 
@@ -178,13 +177,34 @@ Three public available datasets containing genre and subgenre annotations extrac
 
 \section{Music Features}
 
-The dataset provided consists of features precomputed from audio for every music recording. 
-The dataset can be downloaded as an archive. 
-It contains a JSON\cite{json} file with music features for every RecordingID. 
-An example can be seen in \ref{AppendixB}.
+In order to predict the genre of the tracks, we first have to extract
+features from the music files themselves, so can then be fed into various
+classification models.
+
+The provided datsset already consists of the precomputed features from the raw audio for every music recording. 
+This dataset can be downloaded as an archive.
+These features range from low-level spectral energy bands to high-level
+constructed features like danceability or timbre.
+Several of these features are categorical rather than numerical. 
+To use them in a wider variety
+of different models, they need to be transformed to a one-hot encoding beforehand. 
+
+The dataset contains a JSON\cite{json} file with music features for every RecordingID included in the CSV files. 
+
+An example with all the available features can be seen in \ref{AppendixB}.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/freq.png}
+    \decoRule
+    \caption[Spectogram Example]{Example of a spectrogram. Lighter pixels denote a more powerful frequency at the respective time (x-axis)}
+    \label{fig:spectrogram}
+\end{figure}
+
 
 All music features are taken from the community-built database AcousticBrainz and were extracted from audio using Essentia, an open-source library for music audio analysis \cite{essentia}. 
 They are grouped into categories (low-level, rhythm, and tonal) \cite{essentiafeatures}, \cite{Bogdanov2013}. 
+
 Only statistical characterization of time frames is provided (bag of features), no frame-level data is available.
 
 %----------------------------------------------------------------------------------------

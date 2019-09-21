@@ -294,8 +294,184 @@ title = {{ESSENTIA: an Audio Analysis Library for Music Information Retrieval}},
 year = {2013}
 }
 
+@inproceedings{Crammer2003,
+abstract = {A Family of Additive Online Algorithms for Category Ranking Koby Crammer, Yoram$\backslash$nSinger},
+author = {Crammer, Koby and Singer, Yoram},
+booktitle = {Journal of Machine Learning Research},
+doi = {10.1162/153244303322533188},
+issn = {15324435},
+title = {{A Family of Additive Online Algorithms for Category Ranking}},
+year = {2003}
+}
+
+@inproceedings{Mencia2009,
+abstract = {The pairwise approach to multilabel classification reduces the problem to learning and aggregating preference predictions among the possible labels. A key problem is the need to query a quadratic number of preferences for making a prediction. To solve this problem, we extend the recently proposed QWeighted algorithm for efficient pairwise multiclass voting to the multilabel setting, and evaluate the adapted algorithm on several real-world datasets. We achieve an average-case reduction of classifier evaluations from n2 to n + dn log n, where n is the total number of possible labels and d is the average number of labels per instance, which is typically quite small in real-world datasets. {\textcopyright} 2010 Elsevier B.V. All rights reserved.},
+author = {Menc{\'{i}}a, Eneldo Loza and Park, Sang Hyeun and F{\"{u}}rnkranz, Johannes},
+booktitle = {ESANN 2009 Proceedings, 17th European Symposium on Artificial Neural Networks - Advances in Computational Intelligence and Learning},
+isbn = {2930307099},
+title = {{Efficient voting prediction for pairwise multilabel classification}},
+year = {2009}
+}
+
+@inproceedings{LozaMencia2008,
+abstract = {In this paper we applied multilabel classification algorithms to the EUR-Lex database of legal documents of the European Union. On this document collection, we studied three different multilabel classification problems, the largest being the categorization into the EUROVOC concept hierarchy with almost 4000 classes. We evaluated three algorithms: (i) the binary relevance approach which independently trains one classifier per label; (ii) the multiclass multilabel perceptron algorithm, which respects dependencies between the base classifiers; and (iii) the multilabel pairwise perceptron algorithm, which trains one classifier for each pair of labels. All algorithms use the simple but very efficient perceptron algorithm as the underlying classifier, which makes them very suitable for large-scale multilabel classification problems. The main challenge we had to face was that the almost 8,000,000 perceptrons that had to be trained in the pairwise setting could no longer be stored in memory. We solve this problem by resorting to the dual representation of the perceptron, which makes the pairwise approach feasible for problems of this size. The results on the EUR-Lex database confirm the good predictive performance of the pairwise approach and demonstrates the feasibility of this approach for large-scale tasks. {\textcopyright} 2008 Springer-Verlag Berlin Heidelberg.},
+author = {{Loza Menc{\'{i}}a}, Eneldo and F{\"{u}}rnkranz, Johannes},
+booktitle = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+doi = {10.1007/978-3-540-87481-2_4},
+isbn = {3540874801},
+issn = {03029743},
+title = {{Efficient pairwise multilabel classification for large-scale problems in the legal domain}},
+year = {2008}
+}
+
+@article{Zhang2009,
+author = {Zhang, Min-Ling},
+year = {2009},
+month = {04},
+pages = {61-74},
+title = {ML-RBF: RBF neural networks for multi-label learning},
+volume = {29},
+journal = {Neural Processing Letters},
+doi = {10.1007/s11063-009-9095-3}
+}
+
+@inproceedings{Cerri2012,
+abstract = {In Hierarchical Multi-Label Classification (HMC) problems, each example can be classified into two or more classes simultaneously, differently from standard classification. Moreover, the classes are structured in a hierarchy, in the form of either a tree or a directed acyclic graph. Therefore, an example can be assigned to two or more paths from a hierarchical structure, resulting in a complex classification problem with possibly hundreds or thousands of classes. Several methods have been proposed to deal with such problems, some of them employing a single classifier to deal with all classes simultaneously (global methods), and others employing many classifiers to decompose the original problem into a set of subproblems (local methods). In this work, we propose a novel global method called HMC-GA, which employs a genetic algorithm for solving the HMC problem. In our approach, the genetic algorithm evolves the antecedents of classification rules, in order to optimize the level of coverage of each antecedent. Then, the set of optimized antecedents is selected to build the corresponding consequent of the rules (set of classes to be predicted). Our method is compared to state-of-the-art HMC algorithms, in protein function prediction datasets. The experimental results show that our approach presents competitive predictive accuracy, suggesting that genetic algorithms constitute a promising alternative to deal with hierarchical multi-label classification of biological data. {\textcopyright} 2012 ACM.},
+author = {Cerri, Ricardo and Barros, Rodrigo C. and {De Carvalho}, Andre C.P.L.F.},
+booktitle = {Proceedings of the ACM Symposium on Applied Computing},
+doi = {10.1145/2245276.2245325},
+isbn = {9781450308571},
+keywords = {classification rules,genetic algorithms,hierarchical multi-label classification,protein function prediction},
+title = {{A genetic algorithm for hierarchical multi-label classification}},
+year = {2012}
+}
+
+@article{Vens2008,
+abstract = {Hierarchical multi-label classification (HMC) is a variant of classification where instances may belong to multiple classes at the same time and these classes are organized in a hierarchy. This article presents several approaches to the induction of decision trees for HMC, as well as an empirical study of their use in functional genomics. We compare learning a single HMC tree (which makes predictions for all classes together) to two approaches that learn a set of regular classification trees (one for each class). The first approach defines an independent single-label classification task for each class (SC). Obviously, the hierarchy introduces dependencies between the classes. While they are ignored by the first approach, they are exploited by the second approach, named hierarchical single-label classification (HSC). Depending on the application at hand, the hierarchy of classes can be such that each class has at most one parent (tree structure) or such that classes may have multiple parents (DAG structure). The latter case has not been considered before and we show how the HMC and HSC approaches can be modified to support this setting. We compare the three approaches on 24 yeast data sets using as classification schemes MIPS's FunCat (tree structure) and the Gene Ontology (DAG structure). We show that HMC trees outperform HSC and SC trees along three dimensions: predictive accuracy, model size, and induction time. We conclude that HMC trees should definitely be considered in HMC tasks where interpretable models are desired.},
+author = {Vens, Celine and Struyf, Jan and Schietgat, Leander and D{\v{z}}eroski, Sa{\v{s}}o and Blockeel, Hendrik},
+doi = {10.1007/s10994-008-5077-3},
+issn = {08856125},
+journal = {Machine Learning},
+keywords = {Decision trees,Functional genomics,Hierarchical classification,Multi-label classification,Precision-recall analysis},
+title = {{Decision trees for hierarchical multi-label classification}},
+year = {2008}
+}
+
+@article{koutinimediaeval,
+  title={MediaEval 2017 AcousticBrainz Genre Task: Multilayer Perceptron Approach},
+  author={Koutini, Khaled and Imenina, Alina and Dorfer, Matthias and Gruber, Alexander Rudolf and Schedl, Markus}
+}
+
+@article{Aucouturier2003,
+abstract = {Musical genre is probably the most popular music descrip- tor. In the context of large musical databases and Electronic Music Distribution, genre is therefore a crucial metadata for the description of music content. However, genre is intrinsi- cally ill-defined and attempts at defining genre precisely have a strong tendency to end up in circular, ungrounded projec- tions of fantasies. Is genre an intrinsic attribute of music titles, as, say, tempo? Or is genre a extrinsic description of the whole piece? In this article, we discuss the various approaches in representing musical genre, and propose to classify these approaches in three main categories: manual, prescriptive and emergent approaches. We discuss the pros and cons of each approach, and illustrate our study with results of the Cuidado IST project.},
+author = {Aucouturier, Jean Julien and Pachet, Fran{\c{c}}ois},
+doi = {10.1076/jnmr.32.1.83.16801},
+issn = {15497879},
+journal = {International Journal of Phytoremediation},
+title = {{Representing musical genre: A state of the art}},
+year = {2003}
+}
+
+@inproceedings{Murauer2018,
+abstract = {This paper summarizes our contribution to the CrowdAI music genre classification challenge "Learning to Recognise Musical Genre from Audio on the Web" as part of the WebConference 2018. We utilize different approaches from the field of music analysis to predict the music genre of given mp3 music files, including a convolu-tional neural network for spectrogram classification, deep neural networks and ensemble methods using various numerical audio features. Our best results were obtained by an extreme gradient boosting classifier.},
+author = {Murauer, Benjamin and Specht, G{\"{u}}nther},
+doi = {10.1145/3184558.3191822},
+title = {{Detecting Music Genre Using Extreme Gradient Boosting}},
+year = {2018}
+}
+
+@inproceedings{Li2003,
+abstract = {Content-based music genre classification is a fundamental component of music information retrieval systems and has been gaining importance and enjoying a growing amount of attention with the emergence of digital music on the Internet. Currently little work has been done on automatic music genre classification, and in addition, the reported classification accuracies are relatively low. This paper proposes a new feature extraction method for music genre classification, DWCHs 1 . DWCHs capture the local and global information of music signals simultaneously by computing histograms on their Daubechies wavelet coefficients. Effectiveness of this new feature and of previously studied features are compared using various machine learning classification algorithms, including Support Vector Machines and Linear Discriminant Analysis. It is demonstrated that the use of DWCHs significantly improves the accuracy of music genre classification.},
+author = {Li, Tao and Ogihara, Mitsunori and Li, Qi},
+booktitle = {SIGIR Forum (ACM Special Interest Group on Information Retrieval)},
+issn = {01635840},
+keywords = {Feature extraction,Multi-class classification,Music Genre Classification,Wavelet coefficients histogram},
+title = {{A Comparative Study on Content-Based Music Genre Classification}},
+year = {2003}
+}
+
+@inproceedings{Murauer2017,
+abstract = {{\textcopyright} 2017 Author/owner(s). This paper summarizes our contribution (team DBIS) to the AcousticBrainz Genre Task: Content-based music genre recognition from multiple sources as part of MediaEval 2017.We utilize a hierarchical set of multilabel classifiers to predict genres and subgenres and rely on a voting scheme to predict labels across datasets.},
+author = {Murauer, Benjamin and Mayerl, Maximilian and Tschuggnall, Michael and Zangerle, Eva and Pichl, Martin and Specht, Gunther},
+booktitle = {CEUR Workshop Proceedings},
+issn = {16130073},
+title = {{Hierarchical multilabel classification and voting for genre classification}},
+year = {2017}
+}
+
+@article{Franklin2006,
+abstract = {Some researchers in the computational sciences have considered music computation, including music reproduction and generation, as a dynamic system, i.e., a feedback process. The key element is that the state of the musical system depends on a history of past states. Recurrent (neural) networks have been deployed as models for learning musical processes. We first present a tutorial discussion of recurrent networks, covering those that have been used for music learning. Following this, we examine a thread of development of these recurrent networks for music computation that shows how more intricate music has been learned as the state of the art in recurrent networks improves. We present our findings that show that a long short-term memory recurrent network, with new representations that include music knowledge, can learn musical tasks, and can learn to reproduce long songs. Then, given a reharmonization of the chordal structure, it can generate an improvisation.},
+author = {Franklin, Judy A.},
+doi = {10.1287/ijoc.1050.0131},
+issn = {08991499},
+journal = {INFORMS Journal on Computing},
+keywords = {Computer music,LSTM,Music representation,Recurrent neural networks},
+title = {{Recurrent neural networks for music computation}},
+year = {2006}
+}
+
+@inproceedings{Li2010,
+abstract = {Music genre classification has been a challenging yet promising task in the field of music information retrieval (MIR). Due to the highly elusive characteristics of audio musical data, retrieving informative and reliable features from audio signals is crucial to the performance of any music genre classification system. Previous work on audio music genre classification systems mainly concentrated on using timbral features, which limits the performance. To address this problem, we propose a novel approach to extract musical pattern features in audio music using convolutional neural network (CNN), a model widely adopted in image information retrieval tasks. Our experiments show that CNN has strong capacity to capture informative features from the variations of musical patterns with minimal prior knowledge provided.},
+author = {Li, Tom L.H. and Chan, Antoni B. and Chun, Andy H.W.},
+booktitle = {Proceedings of the International MultiConference of Engineers and Computer Scientists 2010, IMECS 2010},
+isbn = {9789881701282},
+keywords = {Convolutional neural network,Multimedia data mining,Music feature extractor,Music information retrieval},
+title = {{Automatic musical pattern feature extraction using convolutional neural network}},
+year = {2010}
+}
+
+@article{Gwardys2014,
+abstract = {Applications of Convolutional Neural Networks (CNNs) to various problems have been the subject of a number of recent studies ranging from image classification and object detection to scene parsing, segmentation 3D volumetric images and action recognition in videos. CNNs are able to learn input data representation, instead of using fixed engineered features. In this study, the image model trained on CNN were applied to a Music Information Retrieval (MIR), in particular to musical genre recognition. The model was trained on ILSVRC-2012 (more than 1 million natural images) to perform image classification and was reused to perform genre classification using spectrograms images. Harmonic/percussive separation was applied, because it is characteristic for musical genre. At final stage, the evaluation of various strategies of merging Support Vector Machines (SVMs) was performed on well known in MIR community - GTZAN dataset. Even though, the model was trained on natural images, the results achieved in this study were close to the state-of-the-art.},
+author = {Gwardys, Grzegorz and Grzywczak, Daniel},
+doi = {10.2478/eletel-2014-0042},
+issn = {20818491},
+journal = {International Journal of Electronics and Telecommunications},
+keywords = {convolutional neural networks,deep learning,genre classification,music information retrieval,transfer learning},
+title = {{Deep image features in music information retrieval}},
+year = {2014}
+}
 
 
+@article{Chen2017,
+abstract = {Although Convolutional Neural Networks (CNNs) and Long Short Term Memory (LSTM) have yielded impressive performances in a variety of Music Information Retrieval (MIR) tasks, the complementarity among the CNNs of different architectures and that between CNNs and LSTM are seldom considered. In this paper, multi-channel CNNs with different architectures and LSTM are combined into one unified architecture (Multi-Channel Convolutional LSTM, MCCLSTM) to extract high-level music descriptors. First, three channels of CNNs with different shapes of filter are applied on each spectrogram image chunk to extract the pitch-, tempo-, and bass-relevant descriptors, respectively. Then, the outputs of each CNNs channel are concatenated and then passed through a fully connected layer to obtain the fused descriptor. Finally, LSTM is applied on the fused descriptor sequence of the whole track to extract its long-term structure property to obtain the high-level descriptor. To prove the efficiency of the MCCLSTM model, the obtained high-level music descriptor is applied to the music genre classification and emotion prediction task. Experimental results demonstrate that, when compared with the hand-crafted schemes or conventional deep learning (Multi Layer Perceptrons (MLP), CNNs, and LSTM) based ones, MCCLSTM achieves higher prediction accuracy on three music collections with different kinds of semantic tags.},
+author = {Chen, Ning and Wang, Shijun},
+journal = {ISMIR, International Society for Music Information Retrieval Conference},
+title = {{High-Level Music Descriptor Extraction Algorithm Based on Combination of Multi-Channel CNNs and LSTM}},
+year = {2017}
+}
+
+@article{Costa2017,
+abstract = {Music genre recognition based on visual representation has been successfully explored over the last years. Classifiers trained with textural descriptors (e.g., Local Binary Patterns, Local Phase Quantization, and Gabor filters) extracted from the spectrograms have achieved state-of-the-art results on several music datasets. In this work, though, we argue that we can go further with the time-frequency analysis through the use of representation learning. To show that, we compare the results obtained with a Convolutional Neural Network (CNN) with the results obtained by using handcrafted features and SVM classifiers. In addition, we have performed experiments fusing the results obtained with learned features and handcrafted features to assess the complementarity between these representations for the music classification task. Experiments were conducted on three music databases with distinct characteristics, specifically a western music collection largely used in research benchmarks (ISMIR 2004 Database), a collection of Latin American music (LMD database), and a collection of field recordings of ethnic African music. Our experiments show that the CNN compares favorably to other classifiers in several scenarios, hence, it is a very interesting alternative for music genre recognition. Considering the African database, the CNN surpassed the handcrafted representations and also the state-of-the-art by a margin. In the case of the LMD database, the combination of CNN and Robust Local Binary Pattern achieved a recognition rate of 92{\%}, which to the best of our knowledge, is the best result (using an artist filter) on this dataset so far. On the ISMIR 2004 dataset, although the CNN did not improve the state of the art, it performed better than the classifiers based individually on other kind of features.},
+author = {Costa, Yandre M.G. and Oliveira, Luiz S. and Silla, Carlos N.},
+doi = {10.1016/j.asoc.2016.12.024},
+issn = {15684946},
+journal = {Applied Soft Computing Journal},
+keywords = {Music genre recognition,Neural network applications,Pattern recognition},
+title = {{An evaluation of Convolutional Neural Networks for music classification using spectrograms}},
+year = {2017}
+}
+
+
+@inproceedings{schreiber2018mediaeval,
+  title={MediaEval 2018 AcousticBrainz Genre Task: A CNN Baseline Relying on Mel-Features.},
+  author={Schreiber, Hendrik},
+  booktitle={MediaEval},
+  year={2018}
+}
+
+@inproceedings{oramas2018mediaeval,
+  title={MediaEval 2018 AcousticBrainz Genre Task: A baseline combining deep feature embeddings across datasets},
+  author={Oramas, Sergio and Bogdanov, Dmitry and Porter, Alastair},
+  year={2018},
+  organization={CEUR Workshop Proceedings}
+}
+
+
+
+@misc{genretask,
+    title = "{AcousticBrainz Genre Task}",
+    howpublished = "\url{https://multimediaeval.github.io/2018-AcousticBrainz-Genre-Task/}"
+}
 
 @ARTICLE{pca,
        author = {{Jauregui}, Jeffrey L.},
@@ -320,7 +496,7 @@ year = {2013}
 }
 
 @misc{numpy,
-    title = {NumpPy},
+    title = {NumPy},
     howpublished = "\url{https://numpy.org/}",
 }
 
@@ -364,7 +540,6 @@ year = {2013}
     title = {Essentia},
     howpublished = "\url{https://essentia.upf.edu/}"
 }
-
 
 
 @misc{essentiafeatures,
