@@ -4,15 +4,36 @@
 
 \label{conclusions}
 %----------------------------------------------------------------------------------------
+As seen in the \ref{test stage} the performance obtained by all the proposed models is not positive enough to deploy these models in a production environment.
 
-\section{Conclusions}
+During this whole thesis development project, several approaches and iterations have been explored to improve the efficiency of the overall model with unsatisfactory outputs.
 
+Based on the state of the art \ref{stateofart} analysis different papers seems to reach poor performance with disappointing results.
 
-\subsection{Achieved goals}
+It can be concluded that song deep features combined with MLP models are not a suitable option and approach to label musical pieces. 
 
+As already mentioned labeling genres is a complex and ongoing task that still needs development and further investigation, really subtle details can determine whether a song belongs to a genre or another. This task is even complicated for humans too that sometimes can not agree to which genre a song fits to. 
 
-\subsection{Pending goals}
+When does a song be different enough to constitute a genre itself?
 
-\newpage
+Is it a sub-genre or a completely new one?
+
+\section{Achieved goals}
+The primary goal of creating an Artificial Neural Network capable of labeling songs has been achieved.
+
+This Network is able to label with more than one genre to a song constituting a Multi-label Multi-Class classification problem.
+
+The model can label genres hierarchically creating several classifiers recursively complying with the established genre ontology.
+
+\section{Pending goals}
+Improve the model performance and surpass the outcome defined in the state of the art for the same problem.
 
 \section{Further work}
+To properly label song that is the main task of this paper some different alternatives can be chosen:
+
+\begin{itemize}
+	\item Use different architectures. Play with different MLP models and architectures. Using a Convolutional Neural Network along with the song spectrogram is a promising task that can produce better conclusions.
+	\item Use different features. Combine and test different song features. Due to the limitations of the provided dataset some extra features that might have been useful could not be used.
+	\item Explore different algorithms. Maybe the MLP is not a suitable solution to tackle the genre classification problem. Using alternatives could improve the performance like Support Vector Machines o Nearest Neighbors to name a few.
+	\item Combining different ML tecniques might improve the results, appointing the previous point, the use of several algorithms for small and highly coupled tasks can lead to superior results.
+\end{itemize}
