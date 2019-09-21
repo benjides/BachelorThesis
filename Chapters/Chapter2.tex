@@ -129,7 +129,12 @@ Finally, it is very likely having a problem of imbalanced data at lower levels o
 Since the problem faced in this paper is a yearly contest held by the AcousticBrainz project \cite{genretask} 
 some several contestants and applications submit their solutions with different approaches and algorithms to tackle this problem.
 
-Koutini et al. \cite{koutinimediaeval} used a simple MLP to recognize the genres.
+Submission from previous editions of the task have explored late fusion of predictions made by classifier models trained for each genre
+source individually. In order to predict genres following a taxonomy
+of a target source, the proposed solutions applied genre mapping
+between taxonomies, either by computing genre co-occurrences on
+the intersection of all four training genre datasets \cite{koutinimediaeval}, or by textual
+string matching \cite{Murauer2017}.
 
 Schreiber, H \cite{schreiber2018mediaeval} used a CNN network alongside the provided Mel features.
 
