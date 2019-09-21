@@ -134,9 +134,12 @@ The project consists of several scripts that handle each one of the individual t
 
 In this section, the initial model and its next iterations will be discussed and explained along with the different design options taken during the process.
 
-As mentioned in previous sections this thesis constitutes a Multi-Label classification problem so using the related work as a starting point there are two main architectures:
+As mentioned in previous sections this thesis constitutes a Multi-Label classification problem,
+so using the related work and state of art \ref{multilabelclassification} as a starting point there are two main architectures:
 
-\subsection{Multi-Label single output}
+\subsection{Regular Multi Layer Perceptron (MLP)}
+\label{approach MLP}
+
 This method produces a single output for each of the songs fed and it has a neuron in the last layer for every genre $N$ available. Each one of those \(N\) neurons will hold the probability of that genre being present given an example \(x\) using the following expression:
 $$ P(\hat{y} = i | x) \forall i \in N$$
 This produces a probability vector $\hat{Y}$ that is pruned using a threshold value to obtain the highest probability genres.
@@ -174,8 +177,11 @@ $$ m > N $$
 And:
 $$ \sum_{i=1}^{N} |y^i| \approx m $$
 
-\subsection{Binary-Label multiple output}
-This method differs from the previous one as several classifiers $c_i$ are trained for each of the available genres $N$. Each one of the classifiers will provide the statistical probability of a song being of that genre.
+\subsection{Multi-label Multi-class Perceptron (MMP)}
+\label{approach MMP}
+
+This method differs from the previous one as several classifiers $c_i$ are trained for each of the available genres $N$. 
+Each one of the classifiers will provide the statistical probability of a song being of that genre.
 This creates an ensemble of classifiers $C$ :
 $$ C = \{c_1, c_2, c_3 ... c_N\} $$ 
 
@@ -212,9 +218,12 @@ $$ y_k  = [ Jazz, Soul ] $$
 Will produce the output:
 $$ \bar{y_k}  = 0 $$
 
+\newpage
 %----------------------------------------------------------------------------------------
 
 \section{Feature selection}
+\label{feature selection}
+
 This section is purely dedicated to explain of the training matrix $X$ is built.
 This matrix is used regardless of the network architecture and should work in any iteration of the model
 
@@ -232,6 +241,7 @@ $$X = [x_1, x_2, x_3, ... x_m]$$
 %----------------------------------------------------------------------------------------
 
 \section{Data processing}
+\label{data processing}
 
 To avoid having a heavy model on the input and obtain the most prominent features a PCA is applied thus reducing the number of features in the input \cite{pca} \cite{Minka2001}: 
 Given $X$ belonging to $\mathbb{R}^m$ the idea is finding a reduction of $ X' \in \mathbb{R}^n$ where $n < m$ that explains a certain percentage of the variance of the original matrix $X$.
@@ -243,10 +253,15 @@ When doing predicitions and tests it is important to reduce the new matrixes to 
 \section{ANN architecture}
 The architectures for both approaches are shown below. 
 Both models are constructed using a Feed-forward MLP consisting of several layers
+
+
+
 %----------------------------------------------------------------------------------------
 
 \section{Training}
+\label{training phase}
 
+Once the training is finished save the trained model to disk and its weights matrixes and the model state with all the hyperparameters.
 %----------------------------------------------------------------------------------------
 
 \section{Validation}
@@ -278,16 +293,18 @@ $$acc_{m} = \frac{1}{k}\sum_{i=1}^{k} acc_{m_{i}}$$
 
 \section{Prediction}
 
-New song comes
-    Audio -> extract features
-    Features
+When labeling an unknown song once the model is trained and deployed there are two possibilities:
 
-    PCA
+In case the song provided is a raw audio format (.mp3, .wav, .aac) first the deep features need to be obtained using the Essentia software \cite{essentia}. Once done, the new example can be fed on the next step.
 
+Given the provided song already has its features extracted a new example is built using the same procedure as mentioned in ref{feture selection} generating a new example $x$.
 
-    Prediction
+Following the variables are pruned using the PCA as mentioned in \ref{data processing} retaining the biggest $n$ components that were established during the model training phase \ref{training phase}.
 
-    Labeling
+Afterward, the model is loaded from disk and the prediction $\hat{y}$ is calculated using the new input $x$. 
+This provides an output vector with numerical data, this vector should be transformed into a labeled vector using the inverse function of the one-hot encoding fashion as described in \ref{approach MLP} and \ref{approach MMP}.
+
+This process is briefly outlined in \ref{fig:Predict Stage}
 
 %----------------------------------------------------------------------------------------
 
