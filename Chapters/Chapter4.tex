@@ -12,8 +12,21 @@ These sections imply a higher technical language and background filled with seve
 In this section, the different methodologies, programming tools and abstractions used during the project may be discussed and how the code is built around them.
 
 \subsection{Python}
+
+\begin{figure}[th]
+    \centering
+    \begin{center}
+        \includegraphics[height=25mm]{Figures/python}
+    \end{center}
+    \decoRule
+    \caption{Python logo}
+    \label{fig:python logo}
+\end{figure}
+
+
 Python is a multi-purpose open-source programming language focused on the quick prototyping. Using a really simple language syntax makes any inexperienced programmer be able to comprehend and create simple scripts. 
 Since there is no compilation, the debugging step is especially fast and repeating the cycle of editing and running is reduced in time\cite{pythonabout}.
+
 Given the multiple open-source libraries and frameworks available for Machine Learning and Artificial Intelligence, Python is a great and suitable option to develop a project with the needed characteristics.
 Some of the mentioned libraries that will be used along with the project:
 
@@ -27,20 +40,55 @@ Some of the mentioned libraries that will be used along with the project:
 
 
 \subsection{MongoDB}
+
+\begin{figure}[th]
+    \centering
+    \begin{center}
+        \includegraphics[height=25mm]{Figures/mongodb}
+    \end{center}
+    \decoRule
+    \caption{MongoDB logo}
+    \label{fig:mongodb logo}
+\end{figure}
+
 MongoDB is a general-purpose, document-based, distributed database \cite{mongo}.
 With a powerful query syntax and language is pretty straightforward to build complex databases and retrieve the desired records with ease.
 Since it is based on the JSON\cite{json} standard it allows creating complex records using arrays, nested properties, and key-value pairs.
+
 Despite the traditional relation Databases using the SQL standards, MongoDB is a nonrelational database relaying on the NoSQL (Not Only SQL) syntax and instead of using tables and rows as in relational databases, MongoDB is built around collections and documents.
 
-Given the previously described problem, MongoDB is a perfect and suitable option to depend on for storing and retrieving the music datasets available. With just some simple commands it easy to obtain the desired data, a chunk of it or more complex subsets that need to fit special conditions to better approximate the model standards.
+Given the previously described problem, MongoDB is a perfect and suitable option to depend on for storing and retrieving the music datasets available. With just some simple commands is easy to obtain the desired data, a chunk of it or more complex subsets that need to fit special conditions to better approximate the model standards.
 
+\newpage
 \subsection{Tensorflow}
+
+\begin{figure}[th]
+    \centering
+    \begin{center}
+        \includegraphics[height=25mm]{Figures/tensorflow}
+    \end{center}
+    \decoRule
+    \caption{Tensorflow logo}
+    \label{fig:tensorflow logo}
+\end{figure}
+
 Tensorflow is an open-source mathematical computing library used as a backend for heavily expensive operations.
 It offers different levels of abstractions so it can work easily coupled with different libraries that rely on heavy calculations and operations with matrixes or tensors.
 
 It provides a collection of workflows to develop and train models using different programming languages so even though it was publicly released in 2015 it is the preferred option to build Machine Learning models as Artificial Neural Networks, the main topic of this thesis \cite{tensorflow}.
 
 \subsection{Keras}
+
+\begin{figure}[th]
+    \centering
+    \begin{center}
+        \includegraphics[height=25mm]{Figures/keras}
+    \end{center}
+    \decoRule
+    \caption{Keras logo}
+    \label{fig:keras logo}
+\end{figure}
+
 Keras is a high-level neural networks API, capable of running on top of TensorFlow. 
 It is focused on enabling fast experimentation and prototyping using a friendly user-interface API, modularity, and extensibility. 
 
@@ -224,8 +272,8 @@ $$ \bar{y_k}  = 0 $$
 \section{Feature selection}
 \label{feature selection}
 
-This section is purely dedicated to explain of the training matrix $X$ is built.
-This matrix is used regardless of the network architecture and should work in any iteration of the model
+This section is purely dedicated to explain how the training matrix $X$ is built.
+This matrix is used regardless of the network architecture and works in any iteration of the model
 
 The main important aspect to weight in is the number of single features to choose as it will affect the number of neurons in the input layer.
 
@@ -246,7 +294,7 @@ $$X = [x_1, x_2, x_3, ... x_m]$$
 To avoid having a heavy model on the input and obtain the most prominent features a PCA is applied thus reducing the number of features in the input \cite{pca} \cite{Minka2001}: 
 Given $X$ belonging to $\mathbb{R}^m$ the idea is finding a reduction of $ X' \in \mathbb{R}^n$ where $n < m$ that explains a certain percentage of the variance of the original matrix $X$.
 
-When doing predicitions and tests it is important to reduce the new matrixes to prune the number of components to $n$. 
+When doing predictions and tests it is important to reduce the new matrixes to prune the number of components to $n$. 
 
 %----------------------------------------------------------------------------------------
 
@@ -266,17 +314,17 @@ Once the training is finished save the trained model to disk and its weights mat
 
 \section{Validation}
 To avoid overfitting and reaching $100\%$ accuracy in the training set and underperform in the test set a validation set is constructed from the training one and fed to the model too.
-After each of the epochs in completed the network evaluates its performance against the validation set , that is not used for training and adjusts the weights accordignly in case of overfitting.
+After each of the epochs in completed the network evaluates its performance against the validation set , which is not used for training and adjusts the weights accordingly in case of overfitting.
 
 We get that
 
 $$X = X^{Train} \cup X^{Validation}$$
 $$X^{Train} \cap X^{Validation} =  \emptyset $$
 
-Between each layer an addtional Dropout layer is included to add random uniform noise and obtain a better performance \cite{Srivastava2014}.
+Between each layer, an additional Dropout layer is included to add random uniform noise and obtain a better performance \cite{Srivastava2014}.
 
 On top of that to validate the overall performance a k-fold cross validation method is used \cite{Rodriguez2010}.
-This method divides the entire dataset into $k$ random independant sets and trains the model $k$ times using $k - 1$ sets as training and the remaining one as test
+This method divides the entire dataset into $k$ random independent sets and trains the model $k$ times using $k - 1$ sets as training and the remaining one as test
 To calculate the accuracy we can get use a simple mean from all the models accuracy
 
 $$acc_{m} = \frac{1}{k}\sum_{i=1}^{k} acc_{m_{i}}$$
@@ -297,7 +345,7 @@ When labeling an unknown song once the model is trained and deployed there are t
 
 In case the song provided is a raw audio format (.mp3, .wav, .aac) first the deep features need to be obtained using the Essentia software \cite{essentia}. Once done, the new example can be fed on the next step.
 
-Given the provided song already has its features extracted a new example is built using the same procedure as mentioned in ref{feture selection} generating a new example $x$.
+Given the provided song already has its features extracted a new example is built using the same procedure as mentioned in \ref{feature selection} generating a new example $x$.
 
 Following the variables are pruned using the PCA as mentioned in \ref{data processing} retaining the biggest $n$ components that were established during the model training phase \ref{training phase}.
 

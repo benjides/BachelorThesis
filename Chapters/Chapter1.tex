@@ -5,7 +5,7 @@
 \label{introduction}
 The following thesis will expose and explain the design, techniques, and development done and achieved to create a Music Genre Classifier based on its deep features.
 
-The thesis explores the connections that may appear between musical pieces when combined using Deep Learning approaches as Artificial Neural Networks.
+The thesis explores the connections that may appear between musical pieces, when combined using Deep Learning approaches as Artificial Neural Networks.
 
 This project consists of the following stages:
 
@@ -27,7 +27,11 @@ The motives behind this thesis roots in combining music with Artificial Intellig
 
 Artificial Neural Networks are a relatively new tool in the Machine Learning field that allows prototyping and creating capable models of virtually any learning task a human can reproduce.
 
-Music genre classification has always been an important topic for the people who enjoy it. Labeling songs according to some formal and style features allow humans to enjoy a certain range of music compositions that better matches their preferences. The music classification also opens the possibility of creating recommender systems that provide the user with a variety of new compositions that the user might enjoy based on the proximity of the bunches several categories fall into. On top of that labeling, music provides a way to connect individual pieces with feelings and moods so the user can experience those mentioned just by listening to the appropriate song that may arise that feeling in them.
+Music genre classification has always been an important topic for the people who enjoy it. Labeling songs according to some formal and style features allow humans to enjoy a certain range of music compositions that better matches their preferences. 
+
+The music classification also opens the possibility of creating recommender systems that provide the user with a variety of new compositions that the user might enjoy based on the proximity of the bunches several categories fall into. 
+
+On top of that labeling, music provides a way to connect individual pieces with feelings and moods so the user can experience those mentioned just by listening to the appropriate song that may arise that feeling in them.
 
 Music is a really powerful tool and a great expression of art that brings society together that must not be left unattended.
 
@@ -54,7 +58,7 @@ These questions relate both to ensuring that such machines do not harm humans or
 
 
 Even without a legal framework, the concerning of ethical issues is an important factor when developing autonomous applications.
-When the system fails the responsibility shall be defined and clearly exposed. 
+When the system fails the responsibility shall be defined and exposed. 
 To bring an example Tesla is facing a legal lawsuit due to the recent fatal crash of one of his autopiloted cars \cite{tesla}.
 
 
@@ -63,14 +67,14 @@ Typically, these applications heavily rely on huge amounts of data used for trai
 The General Data Protection Regulation (GDPR) establishes the customer rights about data and privacy among others against thrid party entities \cite{InformationCommissionersOffice2018}.
 
 
-Regarding the intellectual property, the Spanish law grants acknowledgment, economic retribution and other benefits to its authors or sole author \cite{OrganizacionMundialdelaPropiedadIntelectual-OMPI-2016}
+Regarding the intellectual property, the Spanish law grants acknowledgment, economic retribution and other benefits to its authors or the sole author \cite{OrganizacionMundialdelaPropiedadIntelectual-OMPI-2016}
 
 
 Any piece of Open Source software developed, shall require a License.
 Generally, any Open Source software is software that can be freely accessed, used, changed, and shared (in modified or unmodified form) by anyone. 
-Open-source software is made by many people, and distributed under licenses that comply with the Open Source Definition \cite{opensource} \cite{opensourcedef}.
+Open-source software is made by many people and distributed under licenses that comply with the Open Source Definition \cite{opensource} \cite{opensourcedef}.
 
-For more information refer to \ref{AppendixC}
+This thesis complies with the Open Source definition. For more information refer to \ref{AppendixC}
 
 
 \newpage
@@ -82,7 +86,7 @@ This thesis is meant to be completed within 4 months and 12 ECTS worth.
 According to the 'European Credit Transfer and Accumulation System \cite{EuropeanCommission2009}', 
 a credit constitutes about 25 to 30 student hours which means 12 ECTS * 30 hours = 360 plus a 10\% of possible overload, would sum up roughly 400 hours of student time.
 
-Including 1h weekly meetings with the supervisor during 19 weeks, this adds up to 19 hours plus a 6 hours margin gives a total of 25 hours.
+Including 1h weekly meetings with the supervisor for 19 weeks, this adds up to 19 hours plus a 6 hours margin gives a total of 25 hours.
 
 \begin{table}[h!]
     \centering
@@ -97,7 +101,7 @@ Including 1h weekly meetings with the supervisor during 19 weeks, this adds up t
         \hline
     \end{tabular}
     \caption{Human Resoures summary}
-    \label{table:Human Resoures summary}
+    \label{table:Human Resources summary}
 \end{table}
 
 Given all the software used is open-source there are no licensing-related additional costs and all the included costs are equipment related.
@@ -152,7 +156,7 @@ The economic impact of this project can be helpful to society in different ways 
         Artists could explore new sounds based on the genre and genres their songs are classified and users could get custom recommendations based on the content they usually consume. 
         As a rule of thumb, classifiers work well with recommendation systems using different algorithms once the new data is properly labeled.
 	\item Can be used for musicians and music scholars who want to know how the deep features and signals of musical pieces are correlated with genres.
-	\item Can be used for learning and illustrating of Artificial Neural Networks work. This paper constitutes a complete example of a MLP with all the challenges and features needed to learn and understand what parameters affect which parts and how the model behaves in different scenarios.
+	\item Can be used for learning and illustrating of Artificial Neural Networks work. This paper constitutes a complete example of an MLP with all the challenges and features needed to learn and understand what parameters affect which parts and how the model behaves in different scenarios.
 \end{itemize}
 
 \newpage
@@ -167,7 +171,7 @@ A brief introduction to the mathematical model behind the MLP
     \label{fig:mlp}
 \end{figure}
 
-The mathematical model of a single neuron share some resemblance with the biological one.
+The mathematical model of a single neuron shares some resemblance with the biological one.
 A biological neuron receives input from its dendrites as an electrical signal that is outputted through the axon to the next neuron in the chain.
 The mathematical model uses this baseline and takes the input $x_i$ for each of the dendrites and multiplies it by the corresponding weight $w_i$,
 depending on the weight of the strength of the neuron will be higher. 
@@ -238,7 +242,7 @@ X=\left[
 \right]
 $$
 
-Therefore the complete output of a MLP is
+Therefore the complete output of an MLP is
 $$ A = f(WX + b) $$
 
 

@@ -11,7 +11,7 @@ Music genre classification is a well-known objective and many different approach
 There have been numerous attempts at extracting genre information automatically from the audio signal, 
 using signal processing techniques and machine learning schemes \cite{Aucouturier2003}.
 
-Using this features different solutions have been proved to be efficient, 
+Using these features different solutions have been proved to be efficient, 
 including MLP or hierarchical classification in combination with a voting scheme \cite{Murauer2017}.
 
 While these approaches work with low-level features and computations thereof, other solutions also take music theory into account.
@@ -31,9 +31,9 @@ Chen and Wang \cite{Chen2017} utilize three different CNNs for
 different aspects of a spectrogram to calculate high-level descriptors,
 which are subsequently fed into a LSTM-layer. 
 
-Costa et al. \cite{Costa2017} use a CNN along with a SVM on hand-selected features from the
+Costa et al. \cite{Costa2017} use a CNN along with an SVM on hand-selected features from the
 spectrogram image. They then combine these image predictions
-with the outcome of a SVM trained on acoustical features by fusing
+with the outcome of an SVM trained on acoustical features by fusing
 the results of both areas with different operations \cite{Murauer2018}.
 
 Li et al. \cite{Li2003} propose a new method based on the Daubechies wavelet coefficients histograms
@@ -45,19 +45,19 @@ to improve the classification accuracy using Support Vector Machines and Linear 
 \label{multilabelclassification}
 
 In multilabel classification, rather than multiclass classification, 
-examples may belong to one or more set of classes. Regarding MLP there are several proposals.
+examples may belong to one or more sets of classes. Regarding MLP there are several proposals.
 Crammer and Singer \cite{Crammer2003} proposed Multi-label Multi-class Perceptron (MMP), a
 family of on-line algorithms for ranking on text documents. 
 One perceptron was used for each label but, unlike Bayesian Regression, the performance of the whole ensemble
 was considered to update each perceptron. They showed that MMP outperformed
 Bayesian Regression on text classification tasks.
 
-The pairwise approach is often regarded as superior to Bayesain Regression because the former profits from simpler decision boundaries in the subproblems. 
+The pairwise approach is often regarded as superior to Bayesian Regression because of the former profits from simpler decision boundaries in the subproblems. 
 Thus, while in MMP one perceptron was trained for each class, in \cite{Mencia2009}, multi-label pairwise perceptron (MLPP) was described with perceptrons as base classifiers. 
 It was less efficient than MMP, but it resulted in a gain of accuracy.
-In order to alleviate the complexity of this approach, quadratic with the number of labels, dual multi-label pairwise perceptrons algorithm (DMLPP) \cite{LozaMencia2008} formulated the perceptrons in dual form. 
+To alleviate the complexity of this approach, quadratic with the number of labels, dual multi-label pairwise perceptrons algorithm (DMLPP) \cite{LozaMencia2008} formulated the perceptrons in dual form. 
 Thus the prediction time depended linearly on the number of labels. 
-Authors recommend this approach when the number of classes is high. 
+The authors recommend this approach when the number of classes is high. 
 Nevertheless, it is still less efficient than MMP and, as it keeps the whole training set in memory, it has problems to
 handle training sets with many instances. 
 
@@ -65,7 +65,7 @@ handle training sets with many instances.
 On the contrary, MLPP is advisable if the number of classes is low and the number of examples high. 
 Zhang and Zhou \cite{Zhang2006} developed Backpropagation for Multilabel Learning (BP-MLL), an adaptation of
 the traditional multilayer feed-forward neural network. The key idea is the definition of an error function, closely related to the ranking loss.
-The error function is minimised with gradient descent combined with the error
+The error function is minimized with gradient descent combined with the error
 backpropagation.
 
 The net has one input unit per input feature, one output unit
@@ -74,22 +74,22 @@ output layers. Its computational complexity in the training phase is high, but t
 time cost of predictions is quite trivial.
 
 
-Multi Label Radial Basis Function (ML-RBF) \cite{Zhang2009} was inspired in the wellknown Radial Basis Function method. 
+Multi Label Radial Basis Function (ML-RBF) \cite{Zhang2009} was inspired in the well-known Radial Basis Function method. 
 The first layer is obtained through k-means clustering on
-instances of each possible class, the centre of each cluster being the prototype
-vector of a basis function. Weights of the second layer were learnt by minimising
+instances of each possible class, the center of each cluster being the prototype
+vector of a basis function. Weights of the second layer were learned by minimizing
 a sum-of-squares function \cite{Gibaja2014}.
 \newpage
 %----------------------------------------------------------------------------------------
 
 \section{Hierarchical Classification}
 
-In hierarchical classification, examples are organised in a hierarchical
+In hierarchical classification, examples are organized in a hierarchical
 structure such as a tree or a directed acyclic graph (DAG), which allows a child
 category to have more than one parent category. 
 
 This entails several challenges.
-First, classes in the bottom of the hierarchy tend to be more difficult to identify
+First, classes at the bottom of the hierarchy tend to be more difficult to identify
 because the number of samples is usually less than in upper classes. 
 Secondly, the closer a category is to the root, the more a wrong decision affects lower levels. And
 finally, predictions must respect the class hierarchy. 
@@ -113,9 +113,9 @@ described: the local one (top-down) consists of training a hierarchy of classifi
 a unique classifier using all classes of the hierarchy at once and is able to predict just in one step. 
 
 On the other hand, three baseline approaches were identified in \cite{Vens2008}, the two first corresponded to local methods and the last one corresponded
-to global methods: Single-label Classification approach (SC), Hierarchical Singlelabel Classification (HSC) and Hierarchical Multi-label Classification (HMC).
+to global methods: Single-label Classification approach (SC), Hierarchical Single-label Classification (HSC) and Hierarchical Multi-label Classification (HMC).
 SC trains a binary classifier for each label in the hierarchy considering as
-positive examples those labelled with such class and the rest are considered to be
+positive examples those labeled with such class and the rest are considered to be
 negative. This approach has several drawbacks. 
 
 First, it needs to train one classifier per class (which can be hundreds or thousands). 
@@ -130,7 +130,7 @@ Finally, it is very likely having a problem of imbalanced data at lower levels o
 Since the problem faced in this paper is a yearly contest held by the AcousticBrainz project \cite{genretask} 
 some several contestants and applications submit their solutions with different approaches and algorithms to tackle this problem.
 
-Submission from previous editions of the task have explored late fusion of predictions made by classifier models trained for each genre
+Submission from previous editions of the task have explored the late fusion of predictions made by classifier models trained for each genre
 source individually. In order to predict genres following a taxonomy
 of a target source, the proposed solutions applied genre mapping
 between taxonomies, either by computing genre co-occurrences on
