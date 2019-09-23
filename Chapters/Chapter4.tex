@@ -116,7 +116,7 @@ The project consists of several scripts that handle each one of the individual t
 
 
     Here is an example of one of the documents inserted:
-    \begin{lstlisting}[caption=Song JSON document]
+    \begin{lstlisting}[language=json, caption=Song JSON document]
 {
     "_id": "5cadfc2f4fac9e1e50b0ad5a",
     "mbid": "1a00a335-fead-46ec-8d4f-06e8341291ea",
@@ -296,14 +296,38 @@ Given $X$ belonging to $\mathbb{R}^m$ the idea is finding a reduction of $ X' \i
 
 When doing predictions and tests it is important to reduce the new matrixes to prune the number of components to $n$. 
 
+\newpage
 %----------------------------------------------------------------------------------------
 
 \section{ANN architecture}
 The architectures for both approaches are shown below. 
 Both models are constructed using a Feed-forward MLP consisting of several layers
 
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.4\linewidth]{Figures/mlp.png}
+        \caption[MLP Architecture]{Regular Multi Layer Perceptron Architecture (see \ref{approach MLP})}
+        \label{fig:annmlp}
+    \end{subfigure}%
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.4\linewidth]{Figures/mmlp.png}
+        \caption[MMP Architecture]{Multi-Label Multi-Class Perceptron  (see \ref{approach MMP})}
+        \label{fig:annmmp}
+    \end{subfigure}
+    \caption{Artifical Neural Networks architectures}
+    \label{fig:architectures}
+\end{figure}
 
+\FloatBarrier
+The only difference for both architectures is the number of neurons in the output. 
+While the MLP provides an output for each of the available genres (this number differs depending on the source dataset) 
+the MMP approach uses only 1 similar to a binary classifier and the architecture is repeated for each of the available genres.
 
+To ease the prototyping and model iteration a JSON configuration file is provided to net to interpret and set all the paremeters
+This file is explained in detail in \ref{AppendixH}
 %----------------------------------------------------------------------------------------
 
 \section{Training}

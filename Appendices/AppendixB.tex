@@ -1,13 +1,96 @@
 % Appendix B
 
-\chapter{Song Deep Features}
+\chapter{Sample Configuration file}
 
-\label{AppendixB}
+\label{AppendixH}
 
-All song deep features can be viewed from this example
+\begin{lstlisting}[language=json, caption=Sample Configuration file]
+{
+    "dataset": {
+        "root": "E:/datasets/",
+        "database": "genre_classifier",
+        "source": "discogs",
+        "split": {
+            "train": 0.8,
+            "validation": 0.1,
+            "test": 0.1
+        },
+        "threshold": 0.5
+    },
+    "layers": [
+        {
+            "layer": "Dense",
+            "args": {
+                "units": 140,
+                "activation": "relu",
+                "kernel_initializer": "glorot_uniform"
+            }
+        },
+        {
+            "layer": "Dropout",
+            "args": {
+                "rate": 0.1
+            }
+        },
+        {
+            "layer": "Dense",
+            "args": {
+                "units": 64,
+                "activation": "relu",
+                "kernel_initializer": "glorot_uniform"
+            }
+        },
+        {
+            "layer": "Dense",
+            "args": {
+                "units": 32,
+                "activation": "relu",
+                "kernel_initializer": "glorot_uniform"
+            }
+        },
+        {
+            "layer": "Dense",
+            "args": {
+                "activation": "sigmoid",
+                "kernel_initializer": "glorot_uniform"
+            }
+        }
+    ],
+    "compile": {
+        "loss": "binary_crossentropy",
+        "optimizer": "sgd",
+        "metrics": [
+            "accuracy"
+        ]
+    },
+    "train": {
+        "batch_size": 256,
+        "epochs": 110,
+        "workers": 4
+    }
+}
+\end{lstlisting}
 
-\url{https://acousticbrainz.org/a3b8950a-d1f8-49b9-b88f-89f38726f332/low-level/view?n=0}
-
-All the features and music descriptors are explained in \cite{essentiafeatures}
-
-
+\begin{table}[h!]
+    \centering
+    \begin{tabularx}{\textwidth}{l X} 
+        \hline
+        Parameter & Meaning \\ [0.5ex] 
+        \hline
+        root & Path to the training JSON documents\\
+        database &  MongoDB database to use \\
+        source & Datasource to use (discogs, lastfm, tagtraum)\\
+        split & Split of the datset into training, validation and test in percentage \\
+        threshold & Threshold value to properly binarize neurons outputs \\
+        layers & Array containing all the layers with their type and needed arguments \\
+        loss & Loss function to use \\
+        optimizer & Kernel optimizer function \\
+        metrics & Metrics to inspect during the training \\
+        batch size & Number of examples to feed to the net at once \\
+        epochs & Maximum number of epocs to train the model \\
+        workers & Number of CPU/GPU instances to train the model at once \\
+        \hline
+    \end{tabularx}
+    \caption{Parameters summary}
+    \label{table:Parameters summary}
+\end{table}
