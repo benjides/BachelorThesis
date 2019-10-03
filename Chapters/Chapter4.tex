@@ -332,8 +332,55 @@ This file is explained in detail in \ref{AppendixH}
 
 \section{Training}
 \label{training phase}
+The following graphs show the how the accuracy and loss curves develop along the epochs elapsed during the training.
+
+Given early stopping methods are imposed during the training to avoid overfitting and not accuracy improving most of the models do not consume the maximum total of epochs defined by the user.
 
 Once the training is finished save the trained model to disk and its weights matrixes and the model state with all the hyperparameters.
+
+\subsection{MLP Approach}
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/training_acc.PNG}
+    \decoRule
+    \caption[MLP training accuracy]{MLP training accuracy over epoch (On orange: discogs datasource, blue: lastfm datasource and grey: tagtraum datasource)}
+    \label{fig:MLP training accuracy}
+\end{figure}
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/training_loss.PNG}
+    \decoRule
+    \caption[MLP training loss]{MLP training loss over epoch (On orange: discogs datasource, blue: lastfm datasource and grey: tagtraum datasource)}
+    \label{fig:MLP training loss}
+\end{figure}
+
+This data may be misleading as a great accuracy and loss results are obatined but that is not the case more on \ref{test stage}.
+\FloatBarrier
+\subsection{MMP Approach}
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/mmp_acc.pdf}
+    \decoRule
+    \caption[MMP training accuracy]{MMP training accuracy over epoch for each available genre in the datasource}
+    \label{fig:MMP training accuracy}
+\end{figure}
+
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/mmp_loss.pdf}
+    \decoRule
+    \caption[MMP training loss]{MLP training loss over epoch for each available genre in the datasource}
+    \label{fig:MMP training loss}
+\end{figure}
+
+From these graphs we can see the accuracy of a single classifier is about $0.5\%$.
+
+As previously mentioned this data may be misleading as this is the accuracy of a single classifier.
+
+The proper accuracy comes from correctly classifying all the genres from an example.
+\newpage
 %----------------------------------------------------------------------------------------
 
 \section{Validation}
@@ -353,13 +400,82 @@ To calculate the accuracy we can get use a simple mean from all the models accur
 
 $$acc_{m} = \frac{1}{k}\sum_{i=1}^{k} acc_{m_{i}}$$
 
-
+\newpage
 %----------------------------------------------------------------------------------------
 
 \section{Test}
 \label{test stage}
-\cite{Flach2015}
-\cite{Davis2006}
+
+Since the accuracy value is not good enough for classification models a better metric explaining the real accuracy is needed. 
+As explained in \cite{Flach2015}, \cite{Davis2006} and suggested by the contest holders the best metrics are Precision, Recall, and F1-score.
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Figures/cm.png}
+    \decoRule
+    \caption{Confusion matrix summary}
+    \label{fig:Confusion matrix summary}
+\end{figure}
+These metrics are based on the following concepts:
+\begin{itemize}
+	\item True Negatives ($TN$) - Samples that were correctly identified as negatives
+	\item False Negatives ($FN$) - Samples that were wrongly identified as negatives
+	\item True Positives ($TP$) - Samples that were correctly identified as positives
+	\item False Positives ($FP$) - Samples that were wrongly identified as positives
+\end{itemize}
+
+Depending on the task one may want to maximize or minimize one of the values. 
+
+As a rule of thumb, the higher the $TN$ and $TP$ and the lower the $FN$ and $FP$ the better.
+
+From here we can derive some equations we are interested in:
+$$ Precision = \frac{TP}{TP + FP} $$
+
+$$ Recall = \frac{TP}{TP + FN} $$
+
+And the F1 score that combines both metrics:
+$$ F_1 = 2*\frac{Precision * Recall}{Precision + Recall} $$
+
+The following tables include a summary of the values obatined for the previously mentioned metrics for each approach and datasource
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{l l l l} 
+        \hline
+         & discogs & lastfm & tagtraum \\ [0.5ex] 
+        \hline
+        Precision & 0.0491 & 0.0676 & 0.0792 \\ 
+        Recall &  0.2263 &  0.2512 &  0.3017 \\
+        F1-score &  0.0806 &  0.1065  & 0.1254 \\
+        \hline
+    \end{tabular}
+    \caption{MLP approach test results}
+    \label{table:MLP approach test results}
+\end{table}
+
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{l l l l} 
+        \hline
+         & discogs & lastfm & tagtraum \\ [0.5ex] 
+        \hline
+        Precision & 0.0863 & 0.1012 & 0.1398 \\ 
+        Recall &  0.3249 &  0.2945 &  0.3906 \\
+        F1-score &  0.1363 &  0.1506  & 0.2059 \\
+        \hline
+    \end{tabular}
+    \caption{MMP approach test results}
+    \label{table:MMP approach test results}
+\end{table}
+
+These values present a better reality that the one faced during the training. 
+
+Even though as stated in the state of the art the MMP performances better both approaches provide disappointing results values. 
+
+The MLP approach reached high levels in plain accuracy as the model decided to label most examples as 0 in all its output thus creating a fake effect of accuracy as most samples do not belong to more than 3 genres so there are more 0s than 1s, therefore, increasing accuracy. 
+
+The MMP seems to perform just a bit better, even though having almost random guesses for every genre. With dynamic thresholding
+and apriori association rules the results got improved but nonetheless still unacceptable results to deploy any model.
 
 %----------------------------------------------------------------------------------------
 
